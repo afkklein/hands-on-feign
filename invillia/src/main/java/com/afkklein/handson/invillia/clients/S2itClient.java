@@ -5,7 +5,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name="s2it", url="localhost:8000")
+@FeignClient(name="s2it")
 @RibbonClient("s2it")
 public interface S2itClient {
 
