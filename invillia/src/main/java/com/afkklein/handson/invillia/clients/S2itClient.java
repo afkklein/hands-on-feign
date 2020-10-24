@@ -1,6 +1,6 @@
 package com.afkklein.handson.invillia.clients;
 
-import com.afkklein.handson.invillia.dto.MessageS2itDTO;
+import com.afkklein.handson.invillia.dto.ResponseMessageS2itDto;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RibbonClient("s2it")
 public interface S2itClient {
 
-    @GetMapping("/messages")
-    MessageS2itDTO getS2itMessage();
+    @GetMapping("/autores")
+    ResponseMessageS2itDto getS2itAutores();
 }
