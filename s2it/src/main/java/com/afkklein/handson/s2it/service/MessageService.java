@@ -9,4 +9,8 @@ public class MessageService {
 
     @Autowired
     private Environment environment;
+
+    public Integer retornaPorta() {
+        return Integer.valueOf(environment.getProperty("local.server.port"));
+    }
 }

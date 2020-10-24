@@ -1,5 +1,6 @@
 package com.afkklein.handson.s2it.resource;
 
+import com.afkklein.handson.s2it.dto.ResponseMessageDto;
 import com.afkklein.handson.s2it.model.Autor;
 import com.afkklein.handson.s2it.repository.AutorRepository;
 import com.afkklein.handson.s2it.service.MessageService;
@@ -21,8 +22,8 @@ public class MessageResource {
     AutorRepository autorRepository;
 
     @GetMapping
-    public List<Autor> listaAutores() {
-        return autorRepository.findAll();
+    public ResponseMessageDto<?> listaAutores() {
+        return new ResponseMessageDto<>(autorRepository.findAll(), messageService.retornaPorta());
     }
 
 }
