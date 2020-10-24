@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ResponseMessageDto<T> {
 
-    private T teste;
+    private T response;
     private int s2itport;
 
 }
