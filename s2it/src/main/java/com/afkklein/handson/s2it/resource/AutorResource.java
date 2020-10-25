@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/autores")
-public class MessageResource {
+public class AutorResource {
 
     @Autowired
     MessageService messageService;

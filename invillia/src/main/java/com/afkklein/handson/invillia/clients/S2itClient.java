@@ -11,4 +11,7 @@ public interface S2itClient {
 
     @GetMapping("/autores")
     ResponseMessageS2itDto getS2itAutores();
+
+    @GetMapping("/livros")
+    ResponseMessageS2itDto getS2itLivros();
 }

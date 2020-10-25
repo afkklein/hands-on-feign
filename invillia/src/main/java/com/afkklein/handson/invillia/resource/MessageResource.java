@@ -16,4 +16,9 @@ public class MessageResource {
     public ResponseMessageDto listaAutores() {
         return messageService.listaAutores();
     }
+
+    @GetMapping("/livros")
+    public ResponseMessageDto listaLivros() {
+        return messageService.listaLivros();
+    }
 }
