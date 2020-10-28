@@ -1,5 +1,6 @@
 package com.afkklein.handson.s2it.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,5 +20,6 @@ public class Livro {
 
     @ManyToOne
     @JoinColumn(name = "id_autor")
+    @JsonBackReference
     private Autor autor;
 }
