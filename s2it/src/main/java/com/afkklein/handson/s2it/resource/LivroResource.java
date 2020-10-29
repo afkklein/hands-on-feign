@@ -4,11 +4,13 @@ import com.afkklein.handson.s2it.dto.ResponseMessageDto;
 import com.afkklein.handson.s2it.model.Livro;
 import com.afkklein.handson.s2it.repository.LivroRepository;
 import com.afkklein.handson.s2it.service.MessageService;
+import com.afkklein.handson.s2it.service.RegrasService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,9 +23,17 @@ public class LivroResource {
     @Autowired
     LivroRepository livroRepository;
 
+    @Autowired
+    RegrasService regrasService;
+
     @GetMapping
     public ResponseMessageDto<List<Livro>> listaAutores() {
         return new ResponseMessageDto<>(livroRepository.findAll(), messageService.retornaPorta());
+    }
+
+    @PostMapping
+    public ResponseEntity<Livro> cadastrarLivro(@Valid @RequestBody Livro livro) throws Exception {
+        return ResponseEntity.status(HttpStatus.CREATED).body(regrasService.verificaLivrosPorAutor(livro.getAutor(), livro));
     }
 
 }

@@ -1,6 +1,5 @@
 package com.afkklein.handson.s2it.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
