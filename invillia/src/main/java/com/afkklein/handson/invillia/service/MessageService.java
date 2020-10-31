@@ -19,15 +19,15 @@ public class MessageService {
     public ResponseMessageDto listaAutores() {
         ResponseMessageS2itDto s2itAutores = s2itClient.getS2itAutores();
         return new ResponseMessageDto(s2itAutores.getResponse(),
-                                      s2itAutores.getS2itport(),
-                                      Integer.valueOf(environment.getProperty("local.server.port")));
+                                      Integer.valueOf(environment.getProperty("local.server.port")),
+                                      s2itAutores.getS2itport());
     }
 
     public ResponseMessageDto listaLivros() {
         ResponseMessageS2itDto s2itLivros = s2itClient.getS2itLivros();
         return new ResponseMessageDto(s2itLivros.getResponse(),
-                                      s2itLivros.getS2itport(),
-                                      Integer.valueOf(environment.getProperty("local.server.port")));
+                                      Integer.valueOf(environment.getProperty("local.server.port")),
+                                      s2itLivros.getS2itport());
     }
 
 }
