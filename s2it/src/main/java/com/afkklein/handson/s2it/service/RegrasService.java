@@ -17,12 +17,16 @@ public class RegrasService {
     @Autowired
     LivroRepository livroRepository;
 
-    public Livro verificaLivrosPorAutor(Autor autor, Livro livro) throws Exception {
-        Autor autorBuscado = autorRepository.getOne(autor.getId());
-        if (autorBuscado.getLivros().size() == 4) {
-            throw new QuantidadeDeLivrosNaoPermitidaException("Quantidade não permitida!");
-        } else {
+    public Livro salvarLivro(Autor autor, Livro livro) throws QuantidadeDeLivrosNaoPermitidaException {
+        if(permiteAdicionarLivro(autor)) {
             return livroRepository.save(livro);
+        } else {
+            throw new QuantidadeDeLivrosNaoPermitidaException("Quantidade não permitida!");
         }
+    }
+
+    public boolean permiteAdicionarLivro(Autor autor) {
+        Autor autorBuscado = autorRepository.getOne(autor.getId());
+        return autorBuscado.getLivros().size() < 4;
     }
 }

@@ -1,7 +1,9 @@
 package com.afkklein.handson.s2it.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,6 +11,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "livro")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Livro {
 
     @Id
@@ -22,4 +26,9 @@ public class Livro {
     @JoinColumn(name = "id_autor")
     @JsonBackReference
     private Autor autor;
+
+    public Livro(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 }

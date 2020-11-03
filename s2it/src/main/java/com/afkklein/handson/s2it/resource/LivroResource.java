@@ -33,7 +33,7 @@ public class LivroResource {
 
     @PostMapping
     public ResponseEntity<Livro> cadastrarLivro(@Valid @RequestBody Livro livro) throws Exception {
-        return ResponseEntity.status(HttpStatus.CREATED).body(regrasService.verificaLivrosPorAutor(livro.getAutor(), livro));
+        return ResponseEntity.status(HttpStatus.CREATED).body(regrasService.salvarLivro(livro.getAutor(), livro));
     }
 
 }
