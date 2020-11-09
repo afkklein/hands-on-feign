@@ -25,6 +25,7 @@ public class Livro {
     @ManyToOne
     @JoinColumn(name = "id_autor")
     @JsonBackReference
+    @NotNull
     private Autor autor;
 
     public Livro(Long id, String title) {
