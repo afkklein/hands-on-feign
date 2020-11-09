@@ -45,10 +45,6 @@ public class APITest {
             .body("mensagemUsuario", Matchers.hasItem("O campo Titulo é obrigatório"));
     }
 
-    //{"title": "Testando 123", "autor": {"id": 1}}
-    //{"title": "Testando 123"}
-    //{"autor": {"id": 1}}
-
     @Test
     public void naoDeveCadastrarLivroSeAutorJaPossui4LivrosCadastrados() {
         given()
